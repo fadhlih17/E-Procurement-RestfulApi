@@ -11,15 +11,13 @@ public class PurchaseService : IPurchaseService
     private readonly IRepository<Purchase> _repository;
     private readonly IPersistence _persistence;
     private readonly IProductPriceService _productPriceService;
-    private readonly IProductService _productService;
 
     public PurchaseService(IRepository<Purchase> repository, IPersistence persistence,
-        IProductPriceService productPriceService, IProductService productService)
+        IProductPriceService productPriceService)
     {
         _repository = repository;
         _persistence = persistence;
         _productPriceService = productPriceService;
-        _productService = productService;
     }
     
     public async Task<PurchaseResponse> CreateNewTransaction(ICollection<PurchaseRequest> request, string userId)
